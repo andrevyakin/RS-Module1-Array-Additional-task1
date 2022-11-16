@@ -23,7 +23,7 @@ goals.some(i => i === -1)
 
 //5 Среднее количество голов за матч (без учета автопоражений).
 numberOfGoals = (goals.reduce((a, b) => b !== -1 ? a + b : a)
-    / (goals.length - goals.filter(i => i === -1).length)).toFixed(2);
+    / goals.filter(i => i !== -1).length).toFixed(2);
 alert(`Среднее количество голов за матч равно ${numberOfGoals}.`);
 
 //6 Отсортируйте голы в порядке возрастания (буз учета автопоражений). Массив goals не должен быть изменен.
