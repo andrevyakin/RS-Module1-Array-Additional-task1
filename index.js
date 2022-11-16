@@ -2,14 +2,14 @@ const goals = [8, 1, 1, 3, 2, -1, 5];
 
 //1.Самый результативный матч по количеству голов. Если самых результативных матчей несколько, то выведите первый из них.
 let numberOfGoals = goals.reduce((a, b) => Math.max(a, b), -Infinity);
-let numbers = goals.indexOf(numberOfGoals) + 1;
-alert(`Самый результативный матч был под номером ${numbers}.
+let numbers = goals.indexOf(numberOfGoals);
+alert(`Самый результативный матч был под номером ${numbers + 1}.
 В нем было забито ${numberOfGoals} гол(ов).`);
 
 //2. Найти все самые не результативные игры (без учета автоматичесих поражений).
 numberOfGoals = goals.reduce((a, b) => b !== -1 ? Math.min(a, b) : a, Infinity);
-numbers = [...goals.entries()].filter(i => i[1] === numberOfGoals).map(i => i[0] + 1);
-alert(`Самые не результативные матчи были под номерами ${numbers}.
+numbers = [...goals.entries()].filter(i => i[1] === numberOfGoals).map(i => i[0]);
+alert(`Самые не результативные матчи были под номерами ${numbers.map(i => i + 1)}.
 В каждом из них было забито по ${numberOfGoals} мячу(а).`);
 
 //3 Общее количество голов за сезон (без учета автопоражений).
